@@ -56,16 +56,25 @@ app.layout = html.Div([
             }
         ),
     html.Div([
-    dcc.Dropdown(
-        id='day-dropdown',
-        options=[{'label': k, 'value': k} for k in Types],
-        value=Types[0]
-    ),
-    html.Hr(),
-    dcc.Graph(id='display-selected-values')
-    ])
-    ])
+        dcc.Dropdown(
+            id='day-dropdown',
+            options=[{'label': k, 'value': k} for k in Types],
+            value=Types[0]
+        ),
+        html.Hr(),
 
+        dcc.Graph(id='display-selected-values')
+    ]),
+    html.Div(html.Img(
+        src="https://raw.githubusercontent.com/INmais/Reliable_demo/master/data/logos_reliable.png",
+            style={
+                'maxWidth': '50%',
+                'maxHeight': '50%',
+                'marginLeft': 'auto',
+                'marginRight': 'auto'
+            }
+        )),
+])
 
 @app.callback(
     dash.dependencies.Output('display-selected-values', 'figure'),
